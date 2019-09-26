@@ -87,9 +87,6 @@ resource "aws_instance" "debian_instance" {
     instance_type = "t2.micro"
     vpc_security_group_ids = ["${aws_security_group.debian-SG.id}"]
     user_data = "${file("userdata.sh")}"
-    tags { Name ="debian-terraform"          
-    
-    }
     
     }
     
@@ -130,7 +127,7 @@ instances                   = ["${aws_instance.debian_instance.id}"]
     
     
       
-output "LoadBalancer DNS" {
+output "LoadBalancerDNS" {
   value = "${aws_elb.MyELB.dns_name}"
 }
     
